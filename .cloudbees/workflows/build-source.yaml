@@ -1,0 +1,17 @@
+apiVersion: automation.cloudbees.io/v1alpha1
+kind: Workflow
+name: build-source
+on:
+  push:
+    branches:
+      - "main"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: cloudbees-io/checkout@v1
+      - name: Build
+        run: |
+          echo "Building the source code..."
+          # Insert your build commands here, like make, npm install, etc.
